@@ -1,1 +1,5 @@
+*.xyz filter=lfs diff=lfs merge=lfs -text
+disp_net_best.pth filter=lfs diff=lfs merge=lfs -text
+/Users/shaoyi/Google_Drive/Colab_Notebooks/simplified filter=lfs diff=lfs merge=lfs -text
+*.disp_net_best.pth filter=lfs diff=lfs merge=lfs -text
 *.pth filter=lfs diff=lfs merge=lfs -text
