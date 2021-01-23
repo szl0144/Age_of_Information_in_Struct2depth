@@ -294,7 +294,7 @@ def main(T,AoI):
     '''
     
     fw = open("loss_new.txt",'a')
-    fw.write('{} {} {}\n'.format(valid_list[0],best_loss,T)) 
+    fw.write('{} {} {}\n'.format(valid_list[0],best_loss,T*AoI)) 
 
     fw.close()  
     reload(data_loader)
@@ -370,7 +370,8 @@ def split(N):
     cap.release()
     cap_2.release()
     cv2.destroyAllWindows() 
-    time_gap = 1/fps_2
+    assert 1/fps_2 !=1/fps, 'FPS are different!'
+    time_gap = 1/fps
     return time_gap*N
 
    
@@ -379,7 +380,7 @@ def split(N):
 if __name__ == '__main__':
     #os.remove("loss_new.txt") # delete this line if you trains the model form the break point
     time_gap = split(10) # sample one frame per 10 frames, the sampling frequency is 10/FPS
-    for AoI in range(7,14): # Training from t+0 to t+20, Shaoyi [0,7], Kamran [8,14], Grace[15,20]
+    for AoI in range(0,20): # Training from t+0 to t+20, Shaoyi [0,7], Kamran [8,14], Grace[15,20]
       main(time_gap,AoI)
 
 
