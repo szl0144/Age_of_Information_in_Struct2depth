@@ -34,11 +34,12 @@ import cv2
 cap = cv2.VideoCapture("./video/1.mp4")
 
 
+N=100
 i = 0
 while True:
     i += 1
     ret, frame = cap.read()
-    if ret is False:
+    if ret is False or i == N-1:
         break
     
     #cv2.imshow("image", frame)
@@ -53,6 +54,13 @@ while True:
         resized_frame = cv2.resize(frame, (416, 128), interpolation=cv2.INTER_AREA)
         cv2.imwrite("./dataset/video1/"  + str('%04d'%i) + ".jpg", resized_frame)
         
-        
+(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.') 
+if int(major_ver)  < 3 :
+    fps = cap.get(cv2.cv.CV_CAP_PROP_FPS)
+    print ("Frames per second using video.get(cv2.cv.CV_CAP_PROP_FPS): {0}".format(fps))
+else :
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    print ("Frames per second using video.get(cv2.CAP_PROP_FPS) : {0}".format(fps))
+
 cap.release()
 cv2.destroyAllWindows()

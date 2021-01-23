@@ -33,18 +33,14 @@ import torch
 import numpy as np
 from imageio import imread
 import random
-
 from torch.utils.data import DataLoader, Dataset, random_split
-
 import os
-
+import pdb
 import custom_transforms
-
+import main
 from params import args
 
-
 sequence_length = 3 # 参数
-
 demi_length = (sequence_length-1)//2
 
 def get_lists(ds_path):
@@ -52,15 +48,16 @@ def get_lists(ds_path):
     ll = os.listdir(ds_path)
     ll = [ds_path + '/' + x for x in ll]
     # ll = ['./dataset/video1', './dataset/video2', ...]
+
     
     seq_list = []
     
     for x in ll:
         imgs = os.listdir(x)
         imgs = [x + '/' + img for img in imgs]
-        
+         
         seq_list.append(imgs)
-        
+       
     return seq_list  # List[ List[img_path] ]
 
 
@@ -70,22 +67,24 @@ def get_shifts(sequence_length):
     assert sequence_length%2 == 1 and sequence_length > 1, \
     'sequence_length must be odd and > 1'
     
-    shifts = list(range(-demi_length-1, demi_length-1))
+    shifts = list(range(-demi_length-1, -demi_length+1))
+    #pdb.set_trace() 
     #shifts.pop(demi_length)
     
     # print(shifts)
     return shifts   
 
 
-def get_samples(seq_list, sequence_length):
+def get_samples(seq_list, sequence_length,AoI):
     shifts = get_shifts(sequence_length)
     samples = []
     
+    print(AoI)
     for imgs in seq_list:
         assert len(imgs) > sequence_length, 'dataset is too small!'
-        
-        for i in range(demi_length+1, len(imgs)): # 1，321-1
-            sample = {'tgt': imgs[i], 
+        for i in range(demi_length+1, len(imgs)-AoI): # 1，321-1
+            #pdb.set_trace() 
+            sample = {'tgt': imgs[i+AoI], 
                       'ref_imgs': []
                       }
             
@@ -94,7 +93,7 @@ def get_samples(seq_list, sequence_length):
                 
             samples.append(sample) 
         random.shuffle(samples)
-        
+      
     return samples
 
 
@@ -134,23 +133,20 @@ def get_multi_scale_inv_intrinsics(intrinsics, num_scales):
 def load_as_float(path):
     return imread(path).astype(np.float32)
 
-
-
-
-class SequenceFolder(data.Dataset):
-    def __init__(self, 
+class SequenceFolder():
+    def init(self, 
                  ds_path, 
+                 AoI,
                  seed=0, 
                  sequence_length = 3,
                  num_scales = 4):
-        
         np.random.seed(seed)
         random.seed(seed)
-        
+
         self.num_scales = num_scales
         
         seq_list = get_lists(ds_path)
-        self.samples = get_samples(seq_list, sequence_length)
+        self.samples = get_samples(seq_list, sequence_length,AoI)
         
         # get by calib.py
         self.intrinsics = np.array([
@@ -205,32 +201,17 @@ class SequenceFolder(data.Dataset):
 
     def __len__(self):
         return len(self.samples)
-    
-
-ds_path = './dataset' 
-ds = SequenceFolder(ds_path)
-
-train_size = int(0.9 * len(ds))   # 方便的按比例分割数据集
-valid_size = len(ds) - train_size
-
-train_dataset, valid_dataset = random_split(ds, [train_size, valid_size]) # 
 
 
-train_dataloader = DataLoader(train_dataset, batch_size=args.batchsize, 
-                              shuffle=True, num_workers=4)
 
-valid_dataloader = DataLoader(valid_dataset, batch_size=args.batchsize, 
-                              shuffle=True, num_workers=4)
+
                                                   
                                                      
         
 if __name__ == '__main__':
     ds_path = './dataset'   # 要处理最后的一个斜杠，统一成没斜杠的情况，有斜杠的话就去掉
-
-    
     seqlen = 3
     a = [None]*(seqlen-1)
-
     demi_length = (seqlen-1)//2
     a.insert(demi_length, 6)
     
