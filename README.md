@@ -18,9 +18,9 @@ heavily borrow code from [simplified_struct2depth](https://github.com/necroen/si
 [original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
 <br>
 **Environment**  
-Google_Colab + python 3.6 + pytorch 1.0 + cuda 9.0 + opencv-python + spicy 1.1
+Google_Colab + python 3.6.9 + pytorch 1.0 + cuda 9.0 + opencv-python 4.1.2 + spicy 1.1
 <br>  
-**Usage**  
+**Instruction**  
 ```
 1, take several videos with your mobile phone. Cause I did not rewrite the handle-motion part, so moving objects should not appear in the video!!!
 2, put your video in video folder, and create new folder for each video in dataset folder.
@@ -32,8 +32,6 @@ Google_Colab + python 3.6 + pytorch 1.0 + cuda 9.0 + opencv-python + spicy 1.1
 
 most params are fixed!
 ```
-
-Basiclly, I only rewrite the loss calculate part.
 
 All the training data were filmed by my mobile phone.  
 
