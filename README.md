@@ -1,5 +1,5 @@
-### <p align="center">simplified struct2depth</p>  
-This is a simplified(rough) version of struct2depth in pytorch.  
+### <p align="center">AoI in Depth Prediction</p>  
+This is a simplified version of struct2depth in pytorch.  
 ```
 handle_motion  False
 architecture    simple
@@ -7,19 +7,18 @@ joint_encoder  False
 depth_normalization  True
 compute_minimum_loss  True
 
-train from scratch  
-I didn't rewrite the handle motion part code with pytorch !!!
+PS: There is no motion obejects prediction in this model!
 ```
 ![gif](./misc/rst.gif)  
 
 The gif above is the training result of 1634 pictures and 95 epochs. 
 <br> 
 
-heavily borrow code from [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch) and [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch).  
+heavily borrow code from [simplified_struct2depth](https://github.com/necroen/simplified_struct2depth), [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch) and [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch).  
 [original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
 <br>
 **Environment**  
-Google_Colab + python 3.6 + pytorch 1.0 + cuda 9.0 + opencv-python 
+Google_Colab + python 3.6 + pytorch 1.0 + cuda 9.0 + opencv-python + spicy 1.1
 <br>  
 **Usage**  
 ```
