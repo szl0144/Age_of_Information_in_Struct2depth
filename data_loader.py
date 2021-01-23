@@ -1,30 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed May 15 15:42:36 2019
-
-@author: x
-
-
-self.intrinsics is get by calib.py, and write in this file by hand !!!!!!
-
-
-有些数据增强需要同时对内参做操作，比如水平翻转
-有些数据增强不需要对内参做操作，比如HSV的变化
-变换后的内参可以先计算好，免得每次都计算
-但是随机裁剪图片的时候，变换后的内参是不能预先计算好
-
-数据增强单个操作传入的参数应该是(imgs, intrin)
-
-
-if sequence_length = 3
-tgt image is the i th image, ref is i-1 th and i+1 th image. 
-ref = [i-1, i+1]
-
-if sequence_length = 5
-tgt = i, ref = [i-2, i-1, i+1, i+2]  
-
-if sequence_length = 7
-...
+Data_loader.py is to load the splited images into samples in list type, each element in this list is a dictionary unit named sample
+Each sample consists of 1 target image and two reference images
 
 """
 
@@ -40,7 +17,7 @@ import custom_transforms
 import main
 from params import args
 
-sequence_length = 3 # 参数
+sequence_length = 3 # Input sequece are 3 images
 demi_length = (sequence_length-1)//2
 
 def get_lists(ds_path):
@@ -79,7 +56,7 @@ def get_samples(seq_list, sequence_length,AoI):
     shifts = get_shifts(sequence_length)
     samples = []
     
-    print(AoI)
+    print("AoI is %d"%AoI)
     for imgs in seq_list:
         assert len(imgs) > sequence_length, 'dataset is too small!'
         for i in range(demi_length+1, len(imgs)-AoI): # 1，321-1
@@ -89,7 +66,7 @@ def get_samples(seq_list, sequence_length,AoI):
                       }
             
             for j in shifts: # shifts = [-2, -1]
-                sample['ref_imgs'].append(imgs[i+j])  # tgt 是 i   ref 是 i-1 和 i-2
+                sample['ref_imgs'].append(imgs[i+j])  # tgt is i   ref is i-1 and i-2
                 
             samples.append(sample) 
         random.shuffle(samples)
@@ -176,18 +153,12 @@ class SequenceFolder():
         sample = self.samples[index]
         # np.copy(sample['intrinsics'])
         
-        tgt_img = load_as_float(sample['tgt'])   # 这里读入了图像, 之前是以图片路径保存的
+        tgt_img = load_as_float(sample['tgt'])   # Read the target image
         ref_imgs = [load_as_float(ref_img) for ref_img in sample['ref_imgs']]
         
-        # put the tgt_img in the center of image_stack_origin
-        ref_imgs.insert(demi_length+1, tgt_img)
+        ref_imgs.insert(demi_length+1, tgt_img) #tgt is prediction image with an AoI
         image_stack_origin = ref_imgs  
 
-        # seq = 3  
-        # image_stack_origin = [ ref_imgs[0], tgt_img, ref_imgs[1] ]  
-        
-        # seq = 5
-        # image_stack_origin = [ ref_imgs[0], ref_imgs[1], tgt_img, ref_imgs[2], ref_imgs[3] ]
         
         
         image_stack = self.to_tensor( image_stack_origin.copy() )
@@ -197,7 +168,7 @@ class SequenceFolder():
         intrinsic_mat_inv = torch.from_numpy(self.ms_inv_k)
         
         return image_stack, image_stack_norm, intrinsic_mat, intrinsic_mat_inv
-        #      list 3 128 x 416               4 x 3 x 3
+       
 
     def __len__(self):
         return len(self.samples)
@@ -209,7 +180,7 @@ class SequenceFolder():
                                                      
         
 if __name__ == '__main__':
-    ds_path = './dataset'   # 要处理最后的一个斜杠，统一成没斜杠的情况，有斜杠的话就去掉
+    ds_path = './dataset'   
     seqlen = 3
     a = [None]*(seqlen-1)
     demi_length = (seqlen-1)//2

@@ -84,12 +84,11 @@ def main(T,AoI):
     ds_path = './dataset' 
     ds = data_loader.SequenceFolder()
     ds.init(ds_path, AoI,0,3,4)
-    train_size = int(0.9 * len(ds))   # 方便的按比例分割数据集
-    valid_size = len(ds) - train_size
+    train_size = int(0.9 * len(ds))   # Split the full dataset into training dataset which has 90% of the full dataset images
+    valid_size = len(ds) - train_size   # Validation dataset is the remaining images
 
     train_dataset, valid_dataset = random_split(ds, [train_size, valid_size]) # 
 
-    #print(args.batchsize)
     train_dataloader = DataLoader(train_dataset, batch_size=args.batchsize, 
                                   shuffle=True, num_workers=4)
     
@@ -300,7 +299,7 @@ def main(T,AoI):
     fw.close()  
     reload(data_loader)
 
-def split():
+def split(N):
     shutil.rmtree('./dataset/video1')
     os.mkdir('./dataset/video1')
     shutil.rmtree('./dataset/video2')
@@ -334,7 +333,7 @@ def split():
         if i == frame_count+1:
             break
             #print("i:", i)
-        if i%5 == 0:
+        if i%N == 0:
           resized_frame = cv2.resize(frame, (416, 128), interpolation=cv2.INTER_AREA)
           cv2.imwrite("./dataset/video1/"  + str('%04d'%i) + ".jpg", resized_frame)
     (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
@@ -356,7 +355,7 @@ def split():
         if  j == frame_count_2+1:
             break
         #print("j:", j)
-        if j%5 == 0:
+        if j%N == 0:
           resized_frame_2 = cv2.resize(frame_2, (416, 128), interpolation=cv2.INTER_AREA)
           cv2.imwrite("./dataset/video2/"  + str('%04d'%j) + ".jpg", resized_frame_2)
     (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
@@ -372,15 +371,15 @@ def split():
     cap_2.release()
     cv2.destroyAllWindows() 
     time_gap = 1/fps_2
-    return time_gap*5
+    return time_gap*N
 
    
 
 
 if __name__ == '__main__':
-    #os.remove("loss_new.txt") #delete this command
-    time_gap = split()
-    for AoI in range(7,14): # Training from t+0 to t+20 # Grace (15,20)
+    #os.remove("loss_new.txt") # delete this line if you trains the model form the break point
+    time_gap = split(10) # sample one frame per 10 frames, the sampling frequency is 10/FPS
+    for AoI in range(7,14): # Training from t+0 to t+20, Shaoyi [0,7], Kamran [8,14], Grace[15,20]
       main(time_gap,AoI)
 
 
