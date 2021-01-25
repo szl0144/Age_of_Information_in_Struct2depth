@@ -18,16 +18,31 @@ heavily borrow code from [simplified_struct2depth](https://github.com/necroen/si
 [original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
 <br>
 **Environment**  
-Google_Colab + python 3.6.9 + pytorch 1.0 + cuda 9.0 + opencv-python 4.1.2 + spicy 1.1
+Google_Colab + python 3.6.9 + pytorch 1.0 + cuda 9.0 + opencv-python 4.1.2 + SciPy 1.1
 <br>  
 **Instruction**  
 
-1, Film 2 videos without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder <i>video</i> <br />
-2, Film a
-4, run calib.py, calib the phone camera and get intrinsics.
-5, write the intrinsics to data_loader.py by hand. Pay attention to the original picture size of your camera, it will affect the scaled intrinsics.
-6, run main.py to train.
-7, run infer.py to inference.
+1. Film 2 videos which are 5-10 minutes without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder <i>video</i> <br />
+2. Print the image <i>calib_jpg/Calib_Image_Print.png</i>. Then take several photos of the chessboard image from differet view point (Front, upper, lower, left and righ).  <br />
+4. Save all the image of the chessboard  into <i>calib_jpg</i> folder <br />
+5. Open the file Depth Prediction.ipynb using Google Colab. <br />
+6. Upload the depth prediction code into Google drive. <br />
+7. Mount your Google drive on your Google colab <br />
+8. Come into the depth prediction project folder <br />
+```
+cd drive/My Drive/Colab_Notebooks/Age_of_Information_in_Depth_Prediction 
+``` 
+9. Update required packages sSciPy 1.1 <br />
+```
+pip install scipy==1.1.0    
+``` 
+10. Run file <i>calib.py</i> <br />
+```
+!python calib.py 
+``` 
+11. Get camera intrinsics and copy the parameter matrix to <i>data_loader.py</i> line 129. <br />
+12. run main.py to train.<br />
+13. run infer.py to inference.<br />
 
 
 All the training data were filmed by my mobile phone.  
