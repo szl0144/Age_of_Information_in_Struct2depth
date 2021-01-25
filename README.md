@@ -22,7 +22,7 @@ Google_Colab + python 3.6.9 + pytorch 1.0 + cuda 9.0 + opencv-python 4.1.2 + spi
 <br>  
 **Instruction**  
 
-1, Film 2 videos without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder <i>video</i>
+1, Film 2 videos without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder <i>video</i> <br />
 2, Film a
 4, run calib.py, calib the phone camera and get intrinsics.
 5, write the intrinsics to data_loader.py by hand. Pay attention to the original picture size of your camera, it will affect the scaled intrinsics.
