@@ -1,4 +1,4 @@
-https://img.shields.io/badge/Python-3.6.9-blue
+https://img.shields.io/badge/Python-3.6.9-blue.svg
 ### <p align="center">AoI in Depth Prediction</p>  
 This is a simplified version of struct2depth in pytorch.  
 ```
