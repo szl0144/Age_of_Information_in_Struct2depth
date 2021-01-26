@@ -27,8 +27,8 @@ heavily borrow code from [simplified_struct2depth](https://github.com/necroen/si
 
 **Environment**  
 Google_Colab 
-
 <br>  
+
 **Instruction**  
 
 1. Film 2 videos which are 5-10 minutes using a smartphone without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder [video](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/tree/master/video) <br />
