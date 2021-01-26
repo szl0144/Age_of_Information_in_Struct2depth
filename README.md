@@ -28,10 +28,10 @@ Google_Colab + python 3.6.9 + pytorch 1.0 + cuda 9.0 + opencv-python 4.1.2 + Sci
 <br>  
 **Instruction**  
 
-1. Film 2 videos which are 5-10 minutes using a smartphone without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder <i>video</i> <br />
-2. Print the image <i>calib_jpg/Calib_Image_Print.png</i>. Then take several photos of the chessboard image from differet viewpoint (Front, upper, lower, left and righ).  <br />
-4. Save all the image of the chessboard into the folder <i>calib_jpg</i>  <br />
-5. Open the file Depth <i>Prediction.ipynb</i> using Google Colab. <br />
+1. Film 2 videos which are 5-10 minutes using a smartphone without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder [video](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/tree/master/video) <br />
+2. Print the image [Calib_Image_Print.png](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/calib_jpg/Calib_Image_Print.png). Then take several photos of the chessboard image from differet viewpoint (Front, upper, lower, left and righ).  <br />
+4. Save all the images of the chessboard into the folder [calib_jpg](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/tree/master/calib_jpg) and replace the old images  <br />
+5. Open the file Depth [Prediction.ipynb](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/Depth_Prediction.ipynb) using Google Colab. <br />
 6. Upload the depth prediction code into Google drive. <br />
 7. Mount your Google drive on your Google Colab <br />
 8. Come into the depth prediction project folder <br />
@@ -42,11 +42,11 @@ cd drive/My Drive/Colab_Notebooks/Age_of_Information_in_Depth_Prediction
 ```
 pip install scipy==1.1.0    
 ``` 
-10. Run file <i>calib.py</i> <br />
+10. Run file [calib.py](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/calib.py) <br />
 ```
 !python calib.py 
 ``` 
-11. Get camera intrinsics and copy the parameter matrix to [data_loader.py line 129]() <br />
+11. Get camera intrinsics and copy the parameter matrix to [data_loader.py line 129](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/data_loader.py#L129) <br />
 12. run [main.py](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/main.py) to train the model by.<br />
 ``` 
 !python main.py
