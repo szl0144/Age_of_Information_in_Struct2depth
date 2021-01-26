@@ -17,7 +17,7 @@ Comment: There is no motion obejects prediction in this model!
 The gif above is the training result of 1634 pictures and 95 epoches. 
 <br> 
 If you want to change the dataset size, you can change the length of the videos which are used for traning.<br> 
-If you want to change the training epoches, you can change the variable <i>args_epochs<i \> at [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
+If you want to change the training epoches, you can change the variable <i>args_epochs</i> at [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
 ``` 
 args_epochs = 100
 ``` 
