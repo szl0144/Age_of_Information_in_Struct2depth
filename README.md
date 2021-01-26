@@ -4,7 +4,8 @@
 This is a revised version of model [struct2depth](https://github.com/tensorflow/models/tree/archive/research/struct2depth) where we add an Age in the  in the pre using pytorch library.  
 
 
-<div align=center><img width="150" height="150" src=./misc/model.png>
+<div align=center><img width="300" height="200" src=./misc/model.png>
+
 ```
 Age_of_Information(AoI)  Supported
 handle_motion  False
