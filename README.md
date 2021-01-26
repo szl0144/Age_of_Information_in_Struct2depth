@@ -17,7 +17,7 @@ Comment: There is no motion obejects prediction in this model!
 The gif above is the training result of 1634 pictures and 95 epoches. 
 <br> 
 If you want to change the dataset size, you can change the length of the videos which are used for traning.<br> 
-If you want to change the training epoches, you can change the [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
+If you want to change the training epoches, you can change the variable <i>args_epochs<i> at [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
 ``` 
 args_epochs = 100
 ``` 
@@ -33,7 +33,7 @@ Google_Colab
 **Instruction**  
 
 1. Film 2 videos which are 5-10 minutes using a smartphone without any moving objects, named the video as 1.mp4 and 2.mp4 and save them in the folder [video](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/tree/master/video) <br />
-2. Print the image [Calib_Image_Print.png](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/calib_jpg/Calib_Image_Print.png). Then take several photos of the chessboard image from differet viewpoint (Front, upper, lower, left and righ).  <br />
+2. Print the image [Calib_Image_Print.png](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/calib_jpg/Calib_Image_Print.png). Then take several photos of the chessboard image from differet viewpoint (Front, upper, lower, left and right).  <br />
 4. Save all the images of the chessboard into the folder [calib_jpg](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/tree/master/calib_jpg) and replace the old images  <br />
 5. Open the file Depth [Prediction.ipynb](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/Depth_Prediction.ipynb) using Google Colab. <br />
 6. Upload the depth prediction code into Google drive. <br />
