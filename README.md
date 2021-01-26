@@ -26,14 +26,13 @@ Comment: There is no motion obejects prediction in this model!
 The gif above is the training result of 1634 pictures and 95 epoches. 
 <br> 
 If you want to change the dataset size, you can change the length of the videos which are used for traning.<br> 
-If you want to change the training epoches, you can change the variable <i>args_epochs</i> at [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
+If you want to change the training epoches, you can change the variable <i>args_epochs</i> at [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)<br>
 ``` 
 args_epochs = 100
 ``` 
 
-heavily borrow code from [simplified_struct2depth](https://github.com/necroen/simplified_struct2depth), [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch) and [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch).  
-[original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
-<br>
+
+
 
 **Environment**  
 Google_Colab 
@@ -67,7 +66,11 @@ pip install scipy==1.1.0
 13. Run the next inference cell for depth inference of a single RGB image.<br />
 14. Because google colab's maximum lifetime is only 12 hours, but our project can run more than 24 hours. I set a pattern that let the model can learn from AoI break point in the [main.py line 383](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L383). You can restart the model training from the AoI value in the previous training if Google Colab terminate the previous training. To be mentioned, you should comment [main.py line 381](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L381) if you restart the breakpoint traning.<br />
 15. The validation loss, training loss and AoI in seconds are saved in loss_new.txt.<br />
-16. The MATALB code which plot AoI vs training loss and validation loss figures is in [Loss_Depth.m](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/MATLAB/Loss_Depth.m)</i>.
+16. The MATALB code which plot AoI vs training loss and validation loss figures is in [Loss_Depth.m](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/MATLAB/Loss_Depth.m)</i>.<br />
+
+**Credits**  
+heavily borrow code from [simplified_struct2depth](https://github.com/necroen/simplified_struct2depth), [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch) and [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch).  
+[original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
 
 
 
