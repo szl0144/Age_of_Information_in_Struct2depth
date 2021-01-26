@@ -1,11 +1,14 @@
 ![](https://img.shields.io/badge/Python-3.6.9-blue) ![](https://img.shields.io/badge/PyTorch-1.0-yellow) ![](https://img.shields.io/badge/CUDA-9.0-orange) ![](https://img.shields.io/badge/OpenCV_Python-4.1.2-red)![](https://img.shields.io/badge/SciPy-1.1-green)
 ### <p align="center">Age of Information (AoI) in Depth Prediction</p>  
 
-This is a revised version of model [struct2depth](https://github.com/tensorflow/models/tree/archive/research/struct2depth) where we add an Age in the  in the pre using pytorch library.  
+This is a revised version of model [struct2depth](https://github.com/tensorflow/models/tree/archive/research/struct2depth) using PyTorch library to evaluate the influence of AoI in monocular video depth prediction. We mainly do the changes in the following:<br>  
+1. We change the predicted image from the second one to the last one in the 3 RGB image sequences.<br> 
+2. We add an time age with a range of (0,20)*20/fps to the target predicted image when we create the input dataset.<br>
+3. We combine the dataset loader and model training into one interface [main.py](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/main.py)<br>
 
 
 <div align=center><img width="550" height="300" src=./misc/model.png></div>
-<div align=center>Fig.1 The Structure of the Model</div>
+
 <br> 
 
 ```
