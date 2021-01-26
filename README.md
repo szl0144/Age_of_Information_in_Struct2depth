@@ -1,8 +1,9 @@
 ![](https://img.shields.io/badge/Python-3.6.9-blue) ![](https://img.shields.io/badge/PyTorch-1.0-yellow) ![](https://img.shields.io/badge/CUDA-9.0-orange) ![](https://img.shields.io/badge/OpenCV_Python-4.1.2-red)![](https://img.shields.io/badge/SciPy-1.1-green)
-### <p align="center">AoI in Depth Prediction</p>  
+### <p align="center">Age of Information (AoI) in Depth Prediction</p>  
 
 This is a simplified version of struct2depth in pytorch.  
 ```
+Age_of_Information(AoI)  Supported
 handle_motion  False
 architecture    simple
 joint_encoder  False
@@ -41,7 +42,7 @@ Google_Colab
 ```
 cd drive/My Drive/Colab_Notebooks/Age_of_Information_in_Depth_Prediction 
 ``` 
-9. Update required packages sSciPy 1.1 <br />
+9. Update required packages SciPy 1.1 <br />
 ```
 pip install scipy==1.1.0    
 ``` 
