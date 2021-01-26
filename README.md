@@ -52,13 +52,10 @@ pip install scipy==1.1.0
 !python main.py
 ``` 
 13. Run the next inference cell for depth inference of a single RGB image.<br />
-<<<<<<< HEAD
-14. Because Google Colab's maximum lifetime is only 12 hours, but our project can run more than 24 hours. I set a pattern that let the model can learn from AoI breakpoint in the <i>main.py</i> line 383. You can restart the model training from the AoI value in the previous training if Google Colab terminates the previous training. To be mentioned, you should comment line 381 in the <i>main.py</i> if you restart the breakpoint training.<br />
-=======
 14. Because google colab's maximum lifetime is only 12 hours, but our project can run more than 24 hours. I set a pattern that let the model can learn from AoI break point in the <i>main.py</i> line 383. You can restart the model training from the AoI value in the previous training if Google Colab terminate the previous training. To be mentioned, you should comment [line 381 in main.py](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L381) if you restart the breakpoint traning.<br />
->>>>>>> c7f33dbc66b3c3f0dafd663b6d4a9f0dfac020d3
 15. The validation loss, training loss and AoI in seconds are saved in loss_new.txt.<br />
 16. The MATALB code which plot AoI vs training loss and validation loss figures is in <i>MATLAB/Loss_Depth.m</i>.
+[Lets go to Quora](https://www.quora.com)
 
 
 
