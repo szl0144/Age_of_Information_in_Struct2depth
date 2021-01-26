@@ -32,8 +32,6 @@ args_epochs = 100
 ``` 
 
 
-
-
 **Environment**  
 Google_Colab 
 <br>  
@@ -69,7 +67,7 @@ pip install scipy==1.1.0
 16. The MATALB code which plot AoI vs training loss and validation loss figures is in [Loss_Depth.m](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/MATLAB/Loss_Depth.m)</i>.<br />
 
 **Credits**  
-heavily borrow code from [simplified_struct2depth](https://github.com/necroen/simplified_struct2depth), [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch) and [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch).  
+Heavily borrow code from [simplified_struct2depth](https://github.com/necroen/simplified_struct2depth), [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch), [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch) and  
 [original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
 
 
