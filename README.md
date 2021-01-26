@@ -5,7 +5,7 @@ This is a revised version of model [struct2depth](https://github.com/tensorflow/
 1. We change the predicted image from the second one to the last one in the 3 RGB image sequences for model training.<br> 
 2. We add a time age with a range of (0,20)*20/fps to the target predicted image when we create the input dataset.<br>
 3. We combine the dataset loading and model training into one interface [main.py](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/master/main.py)<br>
-4. We add a breakpoint of AoI for model training to solve the problem of 12 hours running time limit of Google Colab<br>
+4. We add a breakpoint of AoI for model training to solve the problem of 12 hours running time limit in Google Colab<br>
 <br>
 <div align=center><img width="550" height="300" src=./misc/model.png></div>
 
