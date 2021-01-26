@@ -1,5 +1,6 @@
 ![](https://img.shields.io/badge/Python-3.6.9-blue) ![](https://img.shields.io/badge/PyTorch-1.0-yellow) ![](https://img.shields.io/badge/CUDA-9.0-orange) ![](https://img.shields.io/badge/OpenCV_Python-4.1.2-red)![](https://img.shields.io/badge/SciPy-1.1-green)
 ### <p align="center">AoI in Depth Prediction</p>  
+
 This is a simplified version of struct2depth in pytorch.  
 ```
 handle_motion  False
@@ -15,7 +16,7 @@ Comment: There is no motion obejects prediction in this model!
 The gif above is the training result of 1634 pictures and 95 epoches. 
 <br> 
 If you want to change the dataset size, you can change the length of the videos which are used for traning.<br> 
-If YOU want to change the training epoches, you can change the [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
+If you want to change the training epoches, you can change the [main.py line 160](https://github.com/szl0144/Age_of_Information_in_Depth_Prediction/blob/47d4acc799c0d061810acd17756382727793546f/main.py#L160)
 ``` 
 args_epochs = 100
 ``` 
@@ -23,8 +24,10 @@ args_epochs = 100
 heavily borrow code from [simplified_struct2depth](https://github.com/necroen/simplified_struct2depth), [sfmlearner](https://github.com/ClementPinard/SfmLearner-Pytorch) and [monodepth](https://github.com/ClubAI/MonoDepth-PyTorch).  
 [original code in tensorflow](https://github.com/tensorflow/models/tree/master/research/struct2depth)  
 <br>
+
 **Environment**  
-Google_Colab + python 3.6.9 + pytorch 1.0 + cuda 9.0 + opencv-python 4.1.2 + SciPy 1.1
+Google_Colab 
+
 <br>  
 **Instruction**  
 
