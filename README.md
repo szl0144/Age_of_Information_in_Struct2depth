@@ -1,7 +1,10 @@
 ![](https://img.shields.io/badge/Python-3.6.9-blue) ![](https://img.shields.io/badge/PyTorch-1.0-yellow) ![](https://img.shields.io/badge/CUDA-9.0-orange) ![](https://img.shields.io/badge/OpenCV_Python-4.1.2-red)![](https://img.shields.io/badge/SciPy-1.1-green)
 ### <p align="center">Age of Information (AoI) in Depth Prediction</p>  
 
-This is a simplified version of struct2depth in pytorch.  
+This is a revised version of model [struct2depth](https://github.com/tensorflow/models/tree/archive/research/struct2depth) where we add an Age in the  in the pre using pytorch library.  
+
+
+![gif](./misc/model.png)  
 ```
 Age_of_Information(AoI)  Supported
 handle_motion  False
