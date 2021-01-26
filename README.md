@@ -5,8 +5,9 @@ This is a revised version of model [struct2depth](https://github.com/tensorflow/
 
 
 <div align=center><img width="550" height="300" src=./misc/model.png></div>
-
+<div align=center>Fig.1 The Structure of the Model</div>
 <br> 
+
 ```
 Age_of_Information(AoI)  Supported
 handle_motion  False
