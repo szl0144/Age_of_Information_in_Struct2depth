@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Python-3.6.9-blue) ![](https://img.shields.io/badge/PyTorch-1.0-yellow) ![](https://img.shields.io/badge/CUDA-9.0-orange) ![](https://img.shields.io/badge/OpenCV-Python-4.1.2-red)![](https://img.shields.io/badge/SciPy-1.1-green)
+![](https://img.shields.io/badge/Python-3.6.9-blue) ![](https://img.shields.io/badge/PyTorch-1.0-yellow) ![](https://img.shields.io/badge/CUDA-9.0-orange) ![](https://img.shields.io/badge/OpenCV_Python-4.1.2-red)![](https://img.shields.io/badge/SciPy-1.1-green)
 ### <p align="center">AoI in Depth Prediction</p>  
 This is a simplified version of struct2depth in pytorch.  
 ```
