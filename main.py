@@ -372,7 +372,7 @@ def split(N):
     cv2.destroyAllWindows() 
     assert 1/fps_2 !=1/fps, 'FPS are different!'
     time_gap = 1/fps
-    return time_gap*N
+    return (time_gap*N)
 
    
 
